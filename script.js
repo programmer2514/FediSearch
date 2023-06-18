@@ -31,6 +31,7 @@ function searchRedirect(e) {
     if (search_query)
         window.location.href = `${search_engine}${search_query}+site%3Akbin.social+OR+site%3Alemmy.ml+OR+site%3Afedia.io+OR+site%3Apawb.social+OR+site%3Abeehaw.org+OR+site%3Alemmy.blahaj.zone+OR+site%3Alemmy.dbzer0.com+OR+site%3Alemmy.world+OR+site%3Ahexbear.net+OR+site%3Alemmy.one+OR+site%3Afeddit.de+OR+site%3Alemmy.fmhy.ml+OR+site%3Ash.itjust.works+OR+site%3Alemmynsfw.com+OR+site%3Aprogramming.dev`;
     e.preventDefault();
+    return false;
 }
 
 function updateEngine() {
@@ -38,6 +39,7 @@ function updateEngine() {
     let preferred_engine = document.getElementById("engine").value;
 
     localStorage.setItem("preferredEngine", preferred_engine);
+    return false;
 }
 
 function handleTyping() {
@@ -54,12 +56,14 @@ function handleTyping() {
         document.getElementById("submit").style.removeProperty("cursor");
         document.getElementById("x").style.removeProperty("display");
     }
+    return false;
 }
 
 function clearQuery() {
     document.getElementById("search").value = "";
     handleTyping();
     document.getElementById("search").focus();
+    return false;
 }
 
 
