@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>FediSearch — Easily Search the Fediverse</title>
+    <link href="style.css?v1.0" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <main>
+
+        <header id="header">
+            <img id="logo" src="/svg/fs.svg" />
+            <h1 id="logotext">FediSearch</h1>
+            <h2 id="tagline">Easily search the fediverse in your preferred search engine</h2>
+        </header>
+
+        <form id="form">
+            <div id="input-bar">
+                <input type="text" id="search" name="search" placeholder="Search the fediverse"
+                    oninput="handleTyping()">
+                <button type="button" id="x" name="clear" onclick="clearQuery()"><img id="x-icon"
+                        src="/svg/x.svg" /></button>
+                <button type="submit" id="submit" name="submit"><img id="search-icon"
+                        src="/svg/search.svg" /></button><br>
+            </div>
+            <div id="engine-selector">
+                <label id="engine-label" for="engine">Select a Search Engine:</label>
+                <select id="engine" name="engine" onchange="updateEngine()">
+                    <option value="ddg">DuckDuckGo</option>
+                    <option value="google">Google</option>
+                    <option value="bing">Bing</option>
+                    <option value="yahoo">Yahoo</option>
+                    <option value="dogpile">Dogpile</option>
+                </select>
+            </div>
+        </form>
+
+    </main>
+
+    <footer id="footer">
+        <h3>A free, open-source project by Benjamin Pryor</h3>
+        <nav id="footer-links">
+            <a class="footer-link" href="//github.com/programmer2514/FediSearch"><img class="link-icon"
+                    src="/svg/github.svg" /></a>
+            <a class="footer-link" href="//kbin.social/u/TenorTheHusky"><img class="link-icon"
+                    src="/svg/kbin.svg" /></a>
+        </nav>
+    </footer>
+
+    <script src="/script.js?v=1.0"></script>
+</body>
+
+</html>

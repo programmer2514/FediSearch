@@ -1,0 +1,205 @@
+html,
+body {
+    background: rgb(24, 22, 26);
+    color: white;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    width: 100vw;
+    transform: translateY(-75%);
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+    padding: 0;
+    margin: 0.15em 0 0.05em 0;
+}
+
+h2 {
+    color: rgb(180, 180, 180);
+    font-size: 1em;
+    font-weight: normal;
+    letter-spacing: 0.025em;
+    padding: 0;
+    margin: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+option {
+    color: white;
+    background-color: rgb(58, 57, 60);
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    font-size: 1em;
+}
+
+#header {
+    pointer-events: none;
+}
+
+#input-bar {
+    display: flex;
+    flex-direction: row;
+    width: 50em;
+    max-width: 90vw;
+}
+
+#logo {
+    width: 128px;
+    height: 128px;
+}
+
+#search {
+    padding: 1em 1em 0.844em 1em;
+    font-size: 1em;
+    margin: 3em 0 0 0;
+    background: rgba(255, 255, 255, 0.15);
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    border: none;
+    border-radius: 0.5em 0 0 0.5em;
+    color: white;
+    flex-grow: 1;
+}
+
+#search::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+#search:focus {
+    outline: none;
+}
+
+#x-icon {
+    width: 0.75em;
+    height: 0.75em;
+    margin: 0;
+    padding: 1.125em 0.625em 0.925em 0.625em;
+}
+
+#x {
+    padding: 0;
+    font-size: 1em;
+    margin: 3em 0 0 0;
+    background: transparent;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    max-width: 0;
+    right: 2em;
+    display: none;
+}
+
+#x:hover {
+    opacity: 0.75;
+}
+
+#search-icon {
+    width: 1em;
+    height: 1em;
+    padding: 0;
+    margin: 1em 1em 0.8em 1em;
+    opacity: 0.35;
+}
+
+#submit {
+    padding: 0;
+    font-size: 1em;
+    margin: 3em 0 0 0;
+    background: rgba(255, 255, 255, 0.15);
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    border: none;
+    border-radius: 0 0.5em 0.5em 0;
+    color: white;
+    cursor: not-allowed;
+}
+
+#submit:hover {
+    opacity: 0.75;
+}
+
+#engine-selector {
+    display: flex;
+    flex-direction: row;
+}
+
+#engine-label {
+    margin: 1.5em 0 0 0;
+    padding: 0.5em 0.5em 0.344em 0.5em;
+    font-size: 1em;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    pointer-events: none;
+}
+
+#engine {
+    margin: 1.5em 0 0 0;
+    padding: 0.5em 0.5em 0.344em 0.5em;
+    font-size: 1em;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 0.5em;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    cursor: pointer;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0 1em 0.844em 1em;
+    margin: 0;
+    color: rgb(255, 255, 255, 0.75);
+    position: fixed;
+    bottom: 0;
+    width: calc(100vw - 2em);
+}
+
+h3 {
+    margin: 0;
+    padding: 1em 0 0 0;
+    font-size: 1em;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    pointer-events: none;
+}
+
+#footer-links {
+    display: flex;
+    flex-direction: row;
+    padding-top: 1em;
+}
+
+.footer-link {
+    margin: 0;
+    padding: 0 0.5em 0 0;
+}
+
+.link-icon {
+    width: 2em;
+    height: 2em;
+    opacity: 0.75;
+}
+
+.footer-link:hover {
+    opacity: 0.75;
+}
