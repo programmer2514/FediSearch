@@ -249,14 +249,20 @@ h3,
 
 @media only screen and (hover: none) and (pointer: coarse) {
     footer {
-        position: relative;
+        position: static;
         margin-top: 2em;
     }
 
     main {
-        position: relative;
-        top: 0;
+        position: static;
         margin-top: 2em;
         transform: translateY(0);
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 100vh;
     }
 }
