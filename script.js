@@ -7,7 +7,7 @@ if (!preferred_engine) {
 
 document.getElementById("engine").value = preferred_engine;
 
-var network_toggles = localStorage.getItem("networkToggles").split(',').map(x => (x == 'true') ? true : false);
+var network_toggles = localStorage.getItem("networkToggles")?.split(',').map(x => (x == 'true') ? true : false);
 
 if (!network_toggles) {
     network_toggles = [true, true, false, false];
