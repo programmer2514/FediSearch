@@ -48,7 +48,7 @@
     <main>
 
         <header id="header">
-            <img id="logo" src="svg/fs.svg" />
+            <img id="logo" src="svg/fs.svg" alt="FediSearch logo" />
             <h1 id="logotext">FediSearch</h1>
             <h2 id="tagline">Easily search the fediverse in your preferred search engine</h2>
         </header>
@@ -57,31 +57,52 @@
             <div id="input-bar">
                 <input type="text" id="search" name="search" placeholder="Search the fediverse"
                     oninput="handleTyping()">
-                <button type="button" id="x" name="clear" onclick="clearQuery()"><img id="x-icon"
-                        src="svg/x.svg" /></button>
-                <button type="submit" id="submit" name="submit"><img id="search-icon"
-                        src="svg/search.svg" /></button><br>
+                <button type="button" id="x" name="clear" onclick="clearQuery()"><img id="x-icon" src="svg/x.svg"
+                        alt="Clear search query button" /></button>
+                <button type="submit" id="submit" name="submit"><img id="search-icon" src="svg/search.svg"
+                        alt="Search button" /></button><br>
             </div>
             <div id="engine-selector">
                 <label id="engine-label" for="engine">Select a Search Engine:</label>
                 <select id="engine" name="engine" onchange="updateEngine()">
+                    <option value="google_acc">Google (Most Accurate)</option>
+                    <option value="google">Google (Alt. Query)</option>
                     <option value="ddg">DuckDuckGo</option>
-                    <option value="google">Google</option>
                     <option value="bing">Bing</option>
                     <option value="yahoo">Yahoo</option>
                     <option value="dogpile">Dogpile</option>
                 </select>
+            </div>
+            <h3>Select networks to include in search:</h3>
+            <div id="network-selector">
+                <input type="checkbox" id="lemmy-toggle" name="lemmy-toggle" value="lemmy" onchange="updateEngine()"
+                    checked />
+                <label class="checkbox-label" for="lemmy-toggle"> Lemmy</label><br>
+                <input type="checkbox" id="kbin-toggle" name="kbin-toggle" value="kbin" onchange="updateEngine()"
+                    checked />
+                <label class="checkbox-label" for="kbin-toggle"> Kbin</label><br>
+                <input type="checkbox" id="mastodon-toggle" name="mastodon-toggle" value="mastodon"
+                    onchange="updateEngine()" />
+                <label class="checkbox-label" for="mastodon-toggle"> Mastodon</label><br>
+                <input type="checkbox" id="peertube-toggle" name="peertube-toggle" value="peertube"
+                    onchange="updateEngine()" />
+                <label class="checkbox-label" for="peertube-toggle"> PeerTube</label><br>
             </div>
         </form>
 
     </main>
 
     <footer id="footer">
-        <h3>A free, open-source project by Benjamin Pryor</h3>
+        <h4>A free, open-source project by Benjamin Pryor</h4>
         <nav id="footer-links">
             <a class="footer-link" href="//github.com/programmer2514/FediSearch"><img class="link-icon"
-                    src="svg/github.svg" /></a>
-            <a class="footer-link" href="//kbin.social/u/TenorTheHusky"><img class="link-icon" src="svg/kbin.svg" /></a>
+                    src="svg/github.svg" alt="GitHub repository" /></a>
+            <a class="footer-link" href="//www.patreon.com/BenjaminPryor"><img class="link-icon" src="svg/patreon.svg"
+                    alt="Support me on Patreon" /></a>
+            <a class="footer-link" href="//ko-fi.com/benjaminpryor"><img class="link-icon" src="svg/kofi.svg"
+                    alt="Buy me a coffee" /></a>
+            <a class="footer-link" href="//kbin.social/u/TenorTheHusky"><img class="link-icon" src="svg/kbin.svg"
+                    alt="Find me on Kbin" /></a>
         </nav>
     </footer>
 

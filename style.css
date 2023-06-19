@@ -14,7 +14,11 @@ main {
     position: absolute;
     top: 50%;
     width: 100vw;
-    transform: translateY(-75%);
+    transform: translateY(-60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
@@ -34,10 +38,27 @@ h2 {
     margin: 0;
 }
 
+h3 {
+    margin: 1.5em 0 0.5em 0;
+    padding: 0;
+    font-size: 1em;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    pointer-events: none;
+}
+
+h4 {
+    margin: 0;
+    padding: 1em 0 0 0;
+    font-size: 1em;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    pointer-events: none;
+}
+
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 90vw;
 }
 
 option {
@@ -45,6 +66,22 @@ option {
     background-color: rgb(58, 57, 60);
     font-family: Arial, Verdana, Tahoma, sans-serif;
     font-size: 1em;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0 1em 0.844em 1em;
+    margin: 0;
+    color: rgb(255, 255, 255, 0.75);
+    position: fixed;
+    bottom: 0;
+    width: calc(100vw - 2em);
+    z-index: 1000;
 }
 
 #header {
@@ -160,27 +197,33 @@ option {
     cursor: pointer;
 }
 
-footer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 0 1em 0.844em 1em;
-    margin: 0;
-    color: rgb(255, 255, 255, 0.75);
-    position: fixed;
-    bottom: 0;
-    width: calc(100vw - 2em);
+#network-selector {
+    display: grid;
+    grid-template-columns: 1em auto;
 }
 
-h3 {
+[type="checkbox"] {
+    padding: 0;
+    margin: 0.5em 0 0 0;
+    cursor: pointer;
+    grid-column-start: 1;
+}
+
+.checkbox-label {
+    padding: 0.5em 0 0 0.5em;
     margin: 0;
-    padding: 1em 0 0 0;
     font-size: 1em;
     font-family: Arial, Verdana, Tahoma, sans-serif;
-    pointer-events: none;
+    cursor: pointer;
+    grid-column-start: 2;
+    text-align: left;
+}
+
+h3,
+#network-selector,
+[type="checkbox"],
+.checkbox-label {
+    display: none;
 }
 
 #footer-links {
@@ -202,4 +245,15 @@ h3 {
 
 .footer-link:hover {
     opacity: 0.75;
+}
+
+@media only screen and (hover: none) and (pointer: coarse) {
+    footer {
+        position: relative;
+        margin-top: 100vh;
+    }
+
+    main {
+        transform: translateY(-50%);
+    }
 }
