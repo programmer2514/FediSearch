@@ -250,10 +250,13 @@ h3,
 @media only screen and (hover: none) and (pointer: coarse) {
     footer {
         position: relative;
-        margin-top: 100vh;
+        margin-top: 2em;
     }
 
     main {
-        transform: translateY(-50%);
+        position: relative;
+        top: 0;
+        margin-top: 2em;
+        transform: translateY(0);
     }
 }
