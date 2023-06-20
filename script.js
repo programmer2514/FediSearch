@@ -1,7 +1,7 @@
 var preferred_engine = localStorage.getItem("preferredEngine");
 
 if (!preferred_engine) {
-    preferred_engine = "google_acc";
+    preferred_engine = "whoogle_acc";
     localStorage.setItem("preferredEngine", preferred_engine);
 }
 
@@ -35,8 +35,12 @@ function searchRedirect(e) {
 
     var search_engine = "https://duckduckgo.com/?q=";
 
-    if (preferred_engine === "google")
+    if (preferred_engine === "whoogle")
+        search_engine = "https://farside.link/whoogle/search?q=";
+    else if (preferred_engine === "google")
         search_engine = "https://www.google.com/search?q=";
+    else if (preferred_engine === "bing")
+        search_engine = "https://www.bing.com/search?q=";
     else if (preferred_engine === "bing")
         search_engine = "https://www.bing.com/search?q=";
     else if (preferred_engine === "yahoo")
@@ -45,31 +49,31 @@ function searchRedirect(e) {
         search_engine = "https://www.dogpile.com/serp?q=";
 
     if (search_query) {
-        if (preferred_engine !== "google_acc")
-            window.location.href = `${search_engine}${search_query}+site%3Akbin.social+OR+site%3Alemmy.ml+OR+site%3Afedia.io+OR+site%3Apawb.social+OR+site%3Abeehaw.org+OR+site%3Alemmy.blahaj.zone+OR+site%3Alemmy.dbzer0.com+OR+site%3Alemmy.world+OR+site%3Ahexbear.net+OR+site%3Alemmy.one+OR+site%3Afeddit.de+OR+site%3Alemmy.fmhy.ml+OR+site%3Ash.itjust.works+OR+site%3Alemmynsfw.com+OR+site%3Aprogramming.dev`;
-        else {
+        if (preferred_engine.includes("_acc")) {
             var network_toggles = [document.getElementById("lemmy-toggle").checked,
             document.getElementById("kbin-toggle").checked,
             document.getElementById("mastodon-toggle").checked,
             document.getElementById("peertube-toggle").checked];
 
-            var lemmy_query = 'intext:"modlog" "instances" "docs" "code" "join lemmy"',
-                kbin_query = 'intext:"powered by kbin"',
-                mastodon_query = 'intext:"part of the decentralized social network powered by mastodon"',
-                peertube_query = 'intext:"powered by peertube"';
+            var lemmy_query = 'intext%3A"modlog"+%26+"instances"+%26+"docs"+%26+"code"+%26+"join+lemmy"',
+                kbin_query = 'intext%3A"powered+by+kbin"',
+                mastodon_query = 'intext%3A"part+of+the+decentralized+social+network+powered+by+mastodon"',
+                peertube_query = 'intext%3A"powered+by+peertube"';
 
-            // I'm too tired to write this correctly
-            // I sincerely apologize to anyone who has to figure this out
             var nlist_query = (network_toggles[0] ? lemmy_query : "") +
-                ((network_toggles[0] && (network_toggles[1] || network_toggles[2] || network_toggles[3])) ? " OR " : "") +
+                ((network_toggles[0] && (network_toggles[1] || network_toggles[2] || network_toggles[3])) ? "+%7C+" : "") +
                 (network_toggles[1] ? kbin_query : "") +
-                ((network_toggles[1] && (network_toggles[2] || network_toggles[3])) ? " OR " : "") +
+                ((network_toggles[1] && (network_toggles[2] || network_toggles[3])) ? "+%7C+" : "") +
                 (network_toggles[2] ? mastodon_query : "") +
-                ((network_toggles[2] && network_toggles[3]) ? " OR " : "") +
+                ((network_toggles[2] && network_toggles[3]) ? "+%7C+" : "") +
                 (network_toggles[3] ? peertube_query : "");
 
-            window.location.href = `https://www.google.com/search?q=${search_query}+${nlist_query}`;
-        }
+            if (preferred_engine === "whoogle_acc")
+                window.location.href = `https://farside.link/whoogle/search?q=${search_query}+(${nlist_query})`;
+            else if (preferred_engine === "google_acc")
+                window.location.href = `https://www.google.com/search?q=${search_query}+(${nlist_query})`;
+        } else
+            window.location.href = `${search_engine}${search_query}+(site%3Akbin.social+OR+site%3Alemmy.ml+OR+site%3Afedia.io+OR+site%3Apawb.social+OR+site%3Abeehaw.org+OR+site%3Alemmy.blahaj.zone+OR+site%3Alemmy.dbzer0.com+OR+site%3Alemmy.world+OR+site%3Ahexbear.net+OR+site%3Alemmy.one+OR+site%3Afeddit.de+OR+site%3Alemmy.fmhy.ml+OR+site%3Ash.itjust.works+OR+site%3Alemmynsfw.com+OR+site%3Aprogramming.dev)`;
         sessionStorage.setItem("searchQuery", search_query);
     }
 
@@ -88,7 +92,7 @@ function updateEngine() {
 
     var preferred_engine = document.getElementById("engine").value;
 
-    if (preferred_engine === "google_acc") {
+    if (preferred_engine.includes("_acc")) {
         document.getElementsByTagName("h3")[0].style.display = "initial";
         document.getElementById("network-selector").style.display = "grid";
         document.querySelectorAll('[type="checkbox"]').forEach(checkbox => {
