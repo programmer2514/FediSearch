@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /README.md
+Disallow: /LICENSE
+
+Sitemap: sitemap.xml
