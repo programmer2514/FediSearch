@@ -54,6 +54,11 @@ h4 {
     pointer-events: none;
 }
 
+h4 a {
+    color: rgb(150, 200, 255, 0.75);
+    pointer-events: auto;
+}
+
 form {
     display: flex;
     flex-direction: column;
