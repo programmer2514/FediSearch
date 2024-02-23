@@ -79,7 +79,7 @@ footer {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgb(62, 60, 64);
     padding: 0 1em 0.844em 1em;
     margin: 0;
     color: rgb(255, 255, 255, 0.75);
@@ -180,6 +180,10 @@ footer {
 #engine-selector {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 50em;
+    max-width: 90vw;
 }
 
 #engine-label {
@@ -188,10 +192,12 @@ footer {
     font-size: 1em;
     font-family: Arial, Verdana, Tahoma, sans-serif;
     pointer-events: none;
+    text-align: right;
+    flex-shrink: 1;
 }
 
 #engine {
-    margin: 1.5em 0 0 0;
+    margin: 1.5em 0.5em 0 0;
     padding: 0.5em 0.5em 0.344em 0.5em;
     font-size: 1em;
     font-family: Arial, Verdana, Tahoma, sans-serif;
@@ -200,6 +206,7 @@ footer {
     background: rgba(255, 255, 255, 0.15);
     color: white;
     cursor: pointer;
+    max-width: 75%;
 }
 
 #network-selector {

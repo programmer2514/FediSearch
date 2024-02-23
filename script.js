@@ -1,19 +1,15 @@
 var preferred_engine = localStorage.getItem("preferredEngine");
-
 if (!preferred_engine) {
     preferred_engine = "whoogle_acc";
     localStorage.setItem("preferredEngine", preferred_engine);
 }
-
 document.getElementById("engine").value = preferred_engine;
 
 var network_toggles = localStorage.getItem("networkToggles")?.split(',').map(x => (x == 'true') ? true : false);
-
 if (!network_toggles) {
     network_toggles = [true, true, false, false];
     localStorage.setItem("networkToggles", network_toggles);
 }
-
 document.getElementById("lemmy-toggle").checked = network_toggles[0];
 document.getElementById("kbin-toggle").checked = network_toggles[1];
 document.getElementById("mastodon-toggle").checked = network_toggles[2];
@@ -41,8 +37,6 @@ function searchRedirect(e) {
         search_engine = "https://www.google.com/search?q=";
     else if (preferred_engine === "bing")
         search_engine = "https://www.bing.com/search?q=";
-    else if (preferred_engine === "bing")
-        search_engine = "https://www.bing.com/search?q=";
     else if (preferred_engine === "yahoo")
         search_engine = "https://search.yahoo.com/search?p=";
     else if (preferred_engine === "dogpile")
@@ -51,9 +45,9 @@ function searchRedirect(e) {
     if (search_query) {
         if (preferred_engine.includes("_acc")) {
             var network_toggles = [document.getElementById("lemmy-toggle").checked,
-            document.getElementById("kbin-toggle").checked,
-            document.getElementById("mastodon-toggle").checked,
-            document.getElementById("peertube-toggle").checked];
+                                   document.getElementById("kbin-toggle").checked,
+                                   document.getElementById("mastodon-toggle").checked,
+                                   document.getElementById("peertube-toggle").checked];
 
             var lemmy_query = 'intext%3A"modlog"+%26+"instances"+%26+"docs"+%26+"code"+%26+"join-lemmy"',
                 kbin_query = 'intext%3A"powered+by+kbin"',
@@ -93,7 +87,7 @@ function updateEngine() {
     var preferred_engine = document.getElementById("engine").value;
 
     if (preferred_engine.includes("_acc")) {
-        document.getElementsByTagName("h3")[0].style.display = "initial";
+        document.querySelector("h3").style.display = "initial";
         document.getElementById("network-selector").style.display = "grid";
         document.querySelectorAll('[type="checkbox"]').forEach(checkbox => {
             checkbox.style.display = "initial";
@@ -102,7 +96,7 @@ function updateEngine() {
             label.style.display = "initial";
         });
     } else {
-        document.getElementsByTagName("h3")[0].style.removeProperty("display");
+        document.querySelector("h3").style.removeProperty("display");
         document.getElementById("network-selector").style.removeProperty("display");
         document.querySelectorAll('[type="checkbox"]').forEach(checkbox => {
             checkbox.style.removeProperty("display");
