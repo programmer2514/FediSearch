@@ -50,7 +50,7 @@ function searchRedirect(e) {
                                    document.getElementById("peertube-toggle").checked];
 
             var lemmy_query = 'intext%3A"modlog"+%26+"instances"+%26+"docs"+%26+"code"+%26+"join-lemmy"',
-                kbin_query = 'intext%3A"powered+by+kbin"',
+                kbin_query = 'intext%3A"powered+by+kbin"+%7C+intext%3A"powered+by+mbin"',
                 mastodon_query = 'intext%3A"part+of+the+decentralized+social+network+powered+by+mastodon"',
                 peertube_query = 'intext%3A"powered+by+peertube"';
 
@@ -67,7 +67,7 @@ function searchRedirect(e) {
             else if (preferred_engine === "google_acc")
                 window.location.href = `https://www.google.com/search?q=${search_query}+(${nlist_query})`;
         } else
-            window.location.href = `${search_engine}${search_query}+(site%3Alemmy.world+OR+site%3Alemmy.ml+OR+site%3Alemm.ee+OR+site%3Ahexbear.net+OR+site%3Ash.itjust.works+OR+site%3Alemmy.dbzer0.com+OR+site%3Afeddit.de+OR+site%3Akbin.social+OR+site%3Amastodon.social+OR+site%3Amastodon.cloud+OR+site%3Amstdn.social+OR+site%3Amastodon.online+OR+site%3Amastodon.world+OR+site%3Alibre.video+OR+site%3Avideo.antopie.org)`;
+            window.location.href = `${search_engine}${search_query}+(site%3Alemmy.world+OR+site%3Amas.to+OR+site%3Alemm.ee+OR+site%3Ahexbear.net+OR+site%3Ash.itjust.works+OR+site%3Alemmy.dbzer0.com+OR+site%3Afedia.io+OR+site%3Akbin.social+OR+site%3Amastodon.social+OR+site%3Amastodon.cloud+OR+site%3Amstdn.social+OR+site%3Amastodon.online+OR+site%3Amastodon.world+OR+site%3Alibre.video+OR+site%3Avideo.antopie.org)`;
         sessionStorage.setItem("searchQuery", search_query);
     }
 
