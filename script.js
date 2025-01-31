@@ -1,6 +1,6 @@
 var preferred_engine = localStorage.getItem("preferredEngine");
 if (!preferred_engine) {
-    preferred_engine = "whoogle_acc";
+    preferred_engine = "google_acc";
     localStorage.setItem("preferredEngine", preferred_engine);
 }
 document.getElementById("engine").value = preferred_engine;
@@ -11,7 +11,7 @@ if (!network_toggles) {
     localStorage.setItem("networkToggles", network_toggles);
 }
 document.getElementById("lemmy-toggle").checked = network_toggles[0];
-document.getElementById("kbin-toggle").checked = network_toggles[1];
+document.getElementById("mbin-toggle").checked = network_toggles[1];
 document.getElementById("mastodon-toggle").checked = network_toggles[2];
 document.getElementById("peertube-toggle").checked = network_toggles[3];
 
@@ -31,9 +31,7 @@ function searchRedirect(e) {
 
     var search_engine = "https://duckduckgo.com/?q=";
 
-    if (preferred_engine === "whoogle")
-        search_engine = "https://farside.link/whoogle/search?q=";
-    else if (preferred_engine === "google")
+    if (preferred_engine === "google")
         search_engine = "https://www.google.com/search?q=";
     else if (preferred_engine === "bing")
         search_engine = "https://www.bing.com/search?q=";
@@ -45,29 +43,27 @@ function searchRedirect(e) {
     if (search_query) {
         if (preferred_engine.includes("_acc")) {
             var network_toggles = [document.getElementById("lemmy-toggle").checked,
-                                   document.getElementById("kbin-toggle").checked,
+                                   document.getElementById("mbin-toggle").checked,
                                    document.getElementById("mastodon-toggle").checked,
                                    document.getElementById("peertube-toggle").checked];
 
             var lemmy_query = 'intext%3A"modlog"+%26+"instances"+%26+"docs"+%26+"code"+%26+"join-lemmy"',
-                kbin_query = 'intext%3A"powered+by+kbin"+%7C+intext%3A"powered+by+mbin"',
+                mbin_query = 'intext%3A"powered+by+mbin"',
                 mastodon_query = 'intext%3A"part+of+the+decentralized+social+network+powered+by+mastodon"',
                 peertube_query = 'intext%3A"powered+by+peertube"';
 
             var nlist_query = (network_toggles[0] ? lemmy_query : "") +
                 ((network_toggles[0] && (network_toggles[1] || network_toggles[2] || network_toggles[3])) ? "+%7C+" : "") +
-                (network_toggles[1] ? kbin_query : "") +
+                (network_toggles[1] ? mbin_query : "") +
                 ((network_toggles[1] && (network_toggles[2] || network_toggles[3])) ? "+%7C+" : "") +
                 (network_toggles[2] ? mastodon_query : "") +
                 ((network_toggles[2] && network_toggles[3]) ? "+%7C+" : "") +
                 (network_toggles[3] ? peertube_query : "");
 
-            if (preferred_engine === "whoogle_acc")
-                window.location.href = `https://farside.link/whoogle/search?q=${search_query}+(${nlist_query})`;
-            else if (preferred_engine === "google_acc")
+            if (preferred_engine === "google_acc")
                 window.location.href = `https://www.google.com/search?q=${search_query}+(${nlist_query})`;
         } else
-            window.location.href = `${search_engine}${search_query}+(site%3Alemmy.world+OR+site%3Amas.to+OR+site%3Alemm.ee+OR+site%3Ahexbear.net+OR+site%3Ash.itjust.works+OR+site%3Alemmy.dbzer0.com+OR+site%3Afedia.io+OR+site%3Akbin.social+OR+site%3Amastodon.social+OR+site%3Amastodon.cloud+OR+site%3Amstdn.social+OR+site%3Amastodon.online+OR+site%3Amastodon.world+OR+site%3Alibre.video+OR+site%3Avideo.antopie.org)`;
+            window.location.href = `${search_engine}${search_query}+(site%3Apixelfed.social+OR+site%3Amastodon.social+OR+site%3Amstdn.social+OR+site%3Alemmy.world+OR+site%3Alemm.ee+OR+site%3Ash.itjust.works+OR+site%3Ahexbear.net+OR+site%3Alemmy.dbzer0.com+OR+site%3Afeddit.org+OR+site%3Afedia.io+OR+site%3Apixelfed.social+OR+site%3Apixelfed.de+OR+site%3Amisskey.io+OR+site%3Aphijkchu.com+OR+site%3A)`;
         sessionStorage.setItem("searchQuery", search_query);
     }
 
@@ -78,7 +74,7 @@ function searchRedirect(e) {
 function updateEngine() {
 
     var network_toggles = [document.getElementById("lemmy-toggle").checked,
-    document.getElementById("kbin-toggle").checked,
+    document.getElementById("mbin-toggle").checked,
     document.getElementById("mastodon-toggle").checked,
     document.getElementById("peertube-toggle").checked];
 
