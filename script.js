@@ -41,6 +41,8 @@ function searchRedirect(e) {
         search_engine = "https://www.dogpile.com/serp?q=";
     else if (preferred_engine === "kagi")
         search_engine = "https://kagi.com/search?q=";
+    else if (preferred_engine === "startpage")
+        search_engine = "https://www.startpage.com/sp/search?query=";
 
     if (search_query) {
         if (preferred_engine.includes("_acc")) {
