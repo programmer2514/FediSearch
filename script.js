@@ -40,7 +40,7 @@ function searchRedirect(e) {
     else if (preferred_engine === "dogpile")
         search_engine = "https://www.dogpile.com/serp?q=";
     else if (preferred_engine === "kagi")
-        search_engine = "https://kagi.com/search?q="
+        search_engine = "https://kagi.com/search?q=";
 
     if (search_query) {
         if (preferred_engine.includes("_acc")) {
