@@ -47,6 +47,8 @@ function searchRedirect(e) {
         search_engine = "https://search.brave.com/search?q=";
     else if (preferred_engine === "qwant")
         search_engine = "https://www.qwant.com/?q=";
+    else if (preferred_engine === "ecosia")
+        search_engine = "https://www.ecosia.org/search?q=";
 
     if (search_query) {
         if (preferred_engine.includes("_acc")) {
