@@ -45,8 +45,6 @@ function searchRedirect(e) {
         search_engine = "https://www.startpage.com/sp/search?query=";
     else if (preferred_engine === "brave")
         search_engine = "https://search.brave.com/search?q=";
-    else if (preferred_engine === "qwant")
-        search_engine = "https://www.qwant.com/?q=";
     else if (preferred_engine === "ecosia")
         search_engine = "https://www.ecosia.org/search?q=";
 
