@@ -67,9 +67,9 @@ function searchRedirect(e) {
                 (network_toggles[3] ? peertube_query : "");
 
             if (preferred_engine === "google_acc")
-                window.location.href = `https://www.google.com/search?q=${search_query}+(${nlist_query})`;
+                window.location.href = `https://www.google.com/search?q=${encodeURIComponent(search_query)}+(${nlist_query})`;
         } else
-            window.location.href = `${search_engine}${search_query}+(site%3Apixelfed.social+OR+site%3Amastodon.social+OR+site%3Amstdn.social+OR+site%3Alemmy.world+OR+site%3Alemm.ee+OR+site%3Ash.itjust.works+OR+site%3Ahexbear.net+OR+site%3Alemmy.dbzer0.com+OR+site%3Afeddit.org+OR+site%3Afedia.io+OR+site%3Apixelfed.social+OR+site%3Apixelfed.de+OR+site%3Amisskey.io+OR+site%3Aphijkchu.com+OR+site%3Aloops.video)`;
+            window.location.href = `${search_engine}${encodeURIComponent(search_query)}+(site%3Apixelfed.social+OR+site%3Amastodon.social+OR+site%3Amstdn.social+OR+site%3Alemmy.world+OR+site%3Alemm.ee+OR+site%3Ash.itjust.works+OR+site%3Ahexbear.net+OR+site%3Alemmy.dbzer0.com+OR+site%3Afeddit.org+OR+site%3Afedia.io+OR+site%3Apixelfed.social+OR+site%3Apixelfed.de+OR+site%3Amisskey.io+OR+site%3Aphijkchu.com+OR+site%3Aloops.video)`;
         sessionStorage.setItem("searchQuery", search_query);
     }
 
